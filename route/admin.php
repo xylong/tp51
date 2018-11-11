@@ -13,6 +13,8 @@ Route::group('admin', function () {
     Route::get('/', 'Admin/index/index');
 
     // 菜单
-    Route::resource('menus', 'admin/menus');
+    Route::resource('menus', 'admin/menus')->only([
+        'index', 'save', 'update', 'delete'
+    ]);
 
 });
