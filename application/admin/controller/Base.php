@@ -15,25 +15,25 @@ class Base extends Controller
 
         $nodes = Menu::where('status', 1)->order('sort', 'asc')->all()->toArray();
 
-        $active = $this->currentNode($nodes);
+        $crumb = $this->crumb($nodes);
+        $active = array_column($crumb, 'id');
         $menu = Recursion::createMenu($active, $nodes);
 
         $this->assign('menu', $menu);
+        $this->assign('crumb', $crumb);
     }
 
     /**
-     * 当前菜单
+     * 面包屑
      * @param $nodes
      * @return array
      */
-    private function currentNode($nodes)
+    private function crumb($nodes)
     {
         $path = Request::path();
 
         $index = array_search($path, array_column($nodes, 'route'));
 
-        $arr = Recursion::getParents($nodes, $nodes[$index]['id']);
-
-        return array_column($arr, 'id');
+        return Recursion::getParents($nodes, $nodes[$index]['id']);
     }
 }

@@ -13,7 +13,7 @@ class Index extends Base
      */
     public function index()
     {
-        echo 'admin/index';
+        return $this->fetch();
     }
 
     /**
