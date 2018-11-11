@@ -39,7 +39,13 @@ class Menus extends Base
      */
     public function save(Request $request)
     {
-        //
+        $node = $request->param();
+        $result = $this->validate($node, 'app\admin\validate\Menu');
+        if (true !== $result) {
+            return $result;
+        }
+        $menu = Menu::create($node);
+        return $menu->id;
     }
 
     /**
@@ -73,7 +79,14 @@ class Menus extends Base
      */
     public function update(Request $request, $id)
     {
-        //
+        $node = $request->param();
+        $result = $this->validate($node, 'app\admin\validate\Menu');
+        if (true !== $result) {
+            return $result;
+        }
+
+        $menu = new Menu;
+        return $menu->allowField(true)->save($node, ['id' => $id]);
     }
 
     /**
@@ -84,6 +97,6 @@ class Menus extends Base
      */
     public function delete($id)
     {
-        //
+//        return (new Menu)->deleteNode($id);
     }
 }

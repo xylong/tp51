@@ -4,7 +4,7 @@
             <a class="btn btn-xs pull-left" href="javascript:;" v-if="isFolder" @click="toggle"><i
                     :class="open ? 'fa fa-minus' : 'fa fa-plus'"></i></a>
             <i :class="model.icon"></i>
-            <strong :class="model.status == 1 ? 'muted' : 'text-warning'" v-text="model.title"></strong>&nbsp;
+            <strong :class="model.status == 1 ? 'muted' : 'text-warning'" v-text="model.name"></strong>&nbsp;
             <a :href="'/' + model.route" class="font-blue-madison" v-text="model.route"></a>
             <span class="pull-right dd-nodrag" v-show="isShow">
                 <a href="javascript:void(0);" class="btn-xs font-green-sharp" @click="addChild()"><i

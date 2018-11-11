@@ -1,7 +1,7 @@
 <form role="form">
     <div class="form-body">
         <div class="form-group form-md-line-input form-md-floating-label">
-            <input type="text" :class="[{ 'edited': node.title }, 'form-control']" v-model="node.title">
+            <input type="text" :class="[{ 'edited': node.title }, 'form-control']" v-model="node.name">
             <label>栏目</label>
             <span class="help-block">节点名称</span>
         </div>
@@ -17,11 +17,10 @@
                 <div class="form-group form-md-line-input has-success form-md-floating-label">
                     <div class="input-icon">
                         <select :class="[{ 'edited': node.pid }, 'form-control']" v-model="node.pid">
-                            <option v-for="op in options" :value="op.id" v-text="op.title"></option>
+                            <option v-for="op in options" :value="op.id" v-text="op.name"></option>
                         </select>
                         <label>上级栏目</label>
                         <span class="help-block">上级栏目，留空为根节点</span>
-                        <i class="fa fa-tasks"></i>
                     </div>
                 </div>
             </div>
