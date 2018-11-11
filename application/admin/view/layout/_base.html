@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+    <title>Metronic Admin Theme #1 | Blank Page Layout</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="Preview page of Metronic Admin Theme #1 for blank page layout" name="description"/>
+    <meta content="" name="author"/>
+    {include file="layout:_css" /}
+    {block name="css"}{/block}
+    <link rel="shortcut icon" href="favicon.ico"/>
+</head>
+
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+<div class="page-wrapper">
+    {include file="layout:_header" /}
+
+    <div class="clearfix"></div>
+
+    <div class="page-container">
+        {include file="public/_sidebar" /}
+
+        {block name="wrapper"}
+        <div class="page-content-wrapper">
+            <div class="page-content">
+
+                {include file="public/_breadcrumb" /}
+
+                <h1 class="page-title"> Blank Page Layout
+                    <small>blank page layout</small>
+                </h1>
+
+                {block name="main"}{/block}
+
+            </div>
+        </div>
+        {/block}
+
+        {include file="public/_quickbar" /}
+    </div>
+
+    {include file="layout:_footer" /}
+</div>
+
+{include file="layout:_js" /}
+
+{block name="script"}{/block}
+
+</body>
+
+</html>

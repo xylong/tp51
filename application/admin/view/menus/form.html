@@ -1,0 +1,74 @@
+<form role="form">
+    <div class="form-body">
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" :class="[{ 'edited': node.title }, 'form-control']" v-model="node.title">
+            <label>栏目</label>
+            <span class="help-block">节点名称</span>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" :class="[{ 'edited': node.route }, 'form-control']" v-model="node.route">
+            <label>路由</label>
+            <span class="help-block">restful风格，可以为空</span>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group form-md-line-input has-success form-md-floating-label">
+                    <div class="input-icon">
+                        <select :class="[{ 'edited': node.pid }, 'form-control']" v-model="node.pid">
+                            <option v-for="op in options" :value="op.id" v-text="op.title"></option>
+                        </select>
+                        <label>上级栏目</label>
+                        <span class="help-block">上级栏目，留空为根节点</span>
+                        <i class="fa fa-tasks"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group form-md-line-input has-success form-md-floating-label">
+                    <div class="input-icon">
+                        <input type="text" :class="[{ 'edited': node.icon }, 'form-control']" v-model="node.icon">
+                        <label>图标</label>
+                        <span class="help-block">菜单图标</span>
+                        <i class="fa fa-bell-o"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group form-md-line-input has-success form-md-floating-label">
+                    <div class="input-icon">
+                        <input type="text" :class="[{ 'edited': node.sort }, 'form-control']" v-model="node.sort">
+                        <label>排序</label>
+                        <span class="help-block">按数字升序</span>
+                        <i class="fa fa-sort-numeric-asc"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group form-md-radios">
+            <label>状态</label>
+            <div class="md-radio-inline">
+                <div class="md-radio">
+                    <input type="radio" id="checkbox2_8" name="status" class="md-radiobtn" value="1" v-model="node.status">
+                    <label for="checkbox2_8">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span> <i class="fa fa-check font-green-sharp"></i> </label>
+                </div>
+                <div class="md-radio">
+                    <input type="radio" id="checkbox2_9" name="status" class="md-radiobtn" value="0" v-model="node.status">
+                    <label for="checkbox2_9">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span> <i class="fa fa-times font-red-mint"></i> </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-actions noborder">
+        <button type="button" class="btn blue" @click="save">保存</button>
+        <button type="button" class="btn default" @click="cancel">取消</button>
+    </div>
+</form>
