@@ -1,12 +1,12 @@
 <template id="node-template">
     <li class="dd-item">
-        <div class="dd-handle" :class="{bold: isFolder}" @dblclick="changeType" @mouseenter="enter" @mouseleave="leave">
+        <div :class="[{bold: isFolder}, {'dd-active': isActive}, 'dd-handle']" @dblclick="changeType">
             <a class="btn btn-xs pull-left" href="javascript:;" v-if="isFolder" @click="toggle"><i
                     :class="open ? 'fa fa-minus' : 'fa fa-plus'"></i></a>
             <i :class="model.icon"></i>
             <strong :class="model.status == 1 ? 'muted' : 'text-warning'" v-text="model.name"></strong>&nbsp;
             <a :href="'/' + model.route" class="font-blue-madison" v-text="model.route"></a>
-            <span class="pull-right dd-nodrag" v-show="isShow">
+            <span class="pull-right dd-nodrag">
                 <a href="javascript:void(0);" class="btn-xs font-green-sharp" @click="addChild()"><i
                         class="fa fa-plus"></i></a>
                 <a href="javascript:void(0);" class="btn-xs font-purple-sharp" @click="editCurrent()"><i

@@ -12,9 +12,11 @@ Route::group('admin', function () {
 //    首页
     Route::get('/', 'Admin/index/index');
 
-    // 菜单
+//    菜单
     Route::resource('menus', 'admin/menus')->only([
         'index', 'save', 'update', 'delete'
     ]);
 
+//    管理员
+    Route::resource('admins', 'admin/admins');
 });

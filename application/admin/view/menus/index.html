@@ -2,6 +2,24 @@
 
 {block name="css"}
 <link href="__STATIC__/assets/global/plugins/jquery-nestable/jquery.nestable.css" rel="stylesheet" type="text/css"/>
+<style>
+    .dd-nodrag {
+        display: none;
+    }
+
+    .dd-handle:hover > .dd-nodrag {
+        display: block;
+    }
+
+    .dd-active {
+        color: #2ea8e5;
+        background: #fff;
+    }
+
+    .dd-active > span {
+        display: block;
+    }
+</style>
 {/block}
 
 {block name="main"}
