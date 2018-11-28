@@ -1,0 +1,49 @@
+<template id="rule-form">
+    <div class="portlet-body form">
+        <form role="form">
+            <div class="form-body">
+                <div class="form-group form-md-line-input form-md-floating-label">
+                    <div class="input-icon">
+                        <select :class="[{ 'edited': rule.pid }, 'form-control']" v-model="rule.pid">
+                            <option v-for="op in options" :value="op.id" v-text="op.title"></option>
+                        </select>
+                        <label>上级权限</label>
+                        <span class="help-block">上级权限</span>
+                    </div>
+                </div>
+                <div class="form-group form-md-line-input form-md-floating-label">
+                    <input type="text" :class="[{ 'edited': rule.name }, 'form-control']" v-model="rule.name">
+                    <label>规则</label>
+                    <span class="help-block">模块/控制器/方法</span>
+                </div>
+                <div class="form-group form-md-line-input form-md-floating-label">
+                    <input type="text" :class="[{ 'edited': rule.title }, 'form-control']" v-model="rule.title">
+                    <label>名称</label>
+                    <span class="help-block">规则名称</span>
+                </div>
+                <div class="form-group form-md-line-input form-md-floating-label">
+                    <input type="text" :class="[{ 'edited': rule.condition }, 'form-control']" v-model="rule.condition">
+                    <label>表达式</label>
+                    <span class="help-block">为空表示存在就验证，不为空表示按照条件验证</span>
+                </div>
+                <div class="form-group">
+                    <label>状态</label>
+                    <div class="mt-radio-inline">
+                        <label class="mt-radio mt-radio-outline"> 正常
+                            <input type="radio" value="1" name="status" v-model="rule.status">
+                            <span></span>
+                        </label>
+                        <label class="mt-radio mt-radio-outline"> 禁用
+                            <input type="radio" value="0" name="status" v-model="rule.status">
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions noborder">
+                <button type="button" class="btn blue" @click="save">保存</button>
+                <button type="button" class="btn default" @click="cancel">取消</button>
+            </div>
+        </form>
+    </div>
+</template>

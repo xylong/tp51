@@ -17,6 +17,11 @@ Route::group('admin', function () {
         'index', 'save', 'update', 'delete'
     ]);
 
+//    规则
+    Route::resource('rules', 'admin/rules')->only([
+        'index', 'save', 'update', 'delete'
+    ]);
+
 //    管理员
     Route::resource('admins', 'admin/admins');
 });

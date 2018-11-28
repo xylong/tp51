@@ -1,0 +1,70 @@
+{extend name="layout/_base" /}
+
+{block name="css"}
+<link href="__STATIC__/assets/global/plugins/jquery-nestable/jquery.nestable.css" rel="stylesheet" type="text/css"/>
+<style>
+    .dd-nodrag {
+        display: none;
+    }
+
+    .dd-handle:hover > .dd-nodrag {
+        display: block;
+    }
+
+    .dd-active {
+        color: #2ea8e5;
+        background: #fff;
+    }
+
+    .dd-active > span {
+        display: block;
+    }
+</style>
+{/block}
+
+{block name="main"}
+<div class="row" id="rule">
+    <div class="col-md-8">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject font-green sbold uppercase">权限列表</span>
+                </div>
+            </div>
+            <div class="portlet-body ">
+                <div class="dd">
+                    <ol class="dd-list">
+                        <rule-list v-for="(v,index) in treeData" :model="v" :key="index"></rule-list>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-green">
+                    <i class="icon-pin font-green"></i>
+                    <span class="caption-subject bold uppercase" v-text="rule.id ? '编辑' : '添加'"></span>
+                </div>
+            </div>
+            <rule-form :options="options" :rule="rule"></rule-form>
+        </div>
+    </div>
+</div>
+
+{include file="rules:list" /}
+{include file="rules:form" /}
+
+{/block}
+
+
+{block name="script"}
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script src="__STATIC__/common/tree.js" rel="stylesheet" type="text/javascript"></script>
+<script src="__STATIC__/admin/js/rule/list.js" rel="stylesheet" type="text/javascript"></script>
+<script src="__STATIC__/admin/js/rule/form.js" rel="stylesheet" type="text/javascript"></script>
+<script src="__STATIC__/admin/js/rule/index.js" rel="stylesheet" type="text/javascript"></script>
+{/block}
+

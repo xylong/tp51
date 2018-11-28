@@ -1,0 +1,14 @@
+<template id="rule-list">
+    <span>
+        <li class="dd-item" v-if="model.level !== 2">
+            <a href="javascript:;" :class="[model.status ? 'font-green-sharp' : 'font-red-mint', 'btn']"
+               v-text="model.title" @click="edit"></a>
+            <ol class="dd-list" v-show="open" v-if="isFolder">
+                <rule-list v-for="(model, index) in model.children" :model="model" :key="index"></rule-list>
+            </ol>
+        </li>
+        <a href="javascript:;" :class="[model.status ? 'text-success' : 'font-red-mint', 'btn']" v-text="model.title"
+           @click="edit"
+           v-if="model.level == 2"></a>
+    </span>
+</template>
