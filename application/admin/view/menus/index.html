@@ -61,12 +61,10 @@
 {/block}
 
 {block name="script"}
-<script>
-    var nodes = '{$nodes|raw}';
-    var data = '{$data|raw}';
-</script>
+
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 <script src="__STATIC__/assets/global/plugins/jquery-nestable/jquery.nestable.js" type="text/javascript"></script>
+<script src="__STATIC__/common/tree.js" rel="stylesheet" type="text/javascript"></script>
 <script src="__STATIC__/admin/js/tree.js" rel="stylesheet" type="text/javascript"></script>
 <script src="__STATIC__/admin/js/menu.js" rel="stylesheet" type="text/javascript"></script>
 {/block}

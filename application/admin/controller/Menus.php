@@ -15,10 +15,14 @@ class Menus extends Base
      */
     public function index()
     {
-        $data = Menu::order('sort', 'asc')->all();
-        $nodes = json_encode(Recursion::buildTree($data));
-        $data = json_encode($data);
-        return $this->fetch('menus/index', compact('nodes', 'data'));
+//        $data = Menu::order('sort', 'asc')->all();
+//        $nodes = json_encode(Recursion::buildTree($data));
+//        $data = json_encode($data);
+//        return $this->fetch('menus/index', compact('nodes', 'data'));
+        if ($this->request->isAjax()) {
+            return Menu::order('sort', 'asc')->all();
+        }
+        return $this->fetch('menus/index');
     }
 
 
