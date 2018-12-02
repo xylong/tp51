@@ -4,8 +4,45 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "296bd8a1d28e39d56dcd80ce7be249f3",
+    "content-hash": "777f27387dc36065fd7459163f95a2b3",
     "packages": [
+        {
+            "name": "lqsong/tp5.1-auth",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lqsong/tp5.1-auth.git",
+                "reference": "7801d438c03e5f1952fee0bdc628695f560e9afa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lqsong/tp5.1-auth/zipball/7801d438c03e5f1952fee0bdc628695f560e9afa",
+                "reference": "7801d438c03e5f1952fee0bdc628695f560e9afa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "think\\auth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "lqsong",
+                    "email": "957698457@qq.com"
+                }
+            ],
+            "description": "auth package for thinkphp5",
+            "homepage": "https://github.com/lqsong/tp5.1-auth",
+            "time": "2018-04-08T07:24:34+00:00"
+        },
         {
             "name": "topthink/framework",
             "version": "v5.1.28",
